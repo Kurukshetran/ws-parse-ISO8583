@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class GreetingController {
 
-    private static final String template = "Hello, %s!"
-
     // http://localhost:8080/greeting?name=Edgar
     @RequestMapping("/greeting")
     public String greeting(@RequestParam(value="name", defaultValue="World")String name) {
-        return String.format(template, name);
+        return "Hello, ${name}!"
     }
 }
